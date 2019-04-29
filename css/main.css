@@ -153,7 +153,7 @@ template {
 }
 body {
   position: relative;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "Linux Biolinum", 'Noto Serif SC', sans-serif, sans-serif;
   font-size: 14px;
   line-height: 2;
   color: #555;
@@ -179,7 +179,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "Linux Biolinum", 'Noto Serif SC', sans-serif, sans-serif;
 }
 h1 {
   font-size: 22px;
@@ -497,14 +497,14 @@ pre,
   overflow: auto;
   margin: 20px 0;
   padding: 0;
-  font-size: 14px;
+  font-size: 12px;
   color: #4d4d4c;
   background: #f7f7f7;
   line-height: 1.6;
 }
 pre,
 code {
-  font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+  font-family: 'Linux Biolinum', consolas, Menlo, "Linux Biolinum", 'Noto Serif SC', sans-serif, monospace;
 }
 code {
   overflow-wrap: break-word;
@@ -513,7 +513,7 @@ code {
   color: #555;
   background: #eee;
   border-radius: 3px;
-  font-size: 14px;
+  font-size: 12px;
 }
 pre {
   padding: 10px;
@@ -1126,7 +1126,7 @@ pre .javascript .function {
   line-height: 36px;
   font-size: 20px;
   font-weight: normal;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "Linux Biolinum", 'Noto Serif SC', sans-serif, sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
@@ -1219,7 +1219,7 @@ pre .javascript .function {
 .post-body {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "Linux Biolinum", 'Noto Serif SC', sans-serif, sans-serif;
 }
 .post-body span.exturl .fa {
   font-size: 14px;
@@ -1484,7 +1484,7 @@ pre .javascript .function {
 .posts-expand .post-meta {
   margin: 3px 0 60px 0;
   color: #999;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "Linux Biolinum", 'Noto Serif SC', sans-serif, sans-serif;
   font-size: 12px;
   text-align: center;
 }
@@ -1765,7 +1765,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff2f55;
+  background: #ff14fb;
 }
 .feed-link,
 .chat {
@@ -2960,11 +2960,38 @@ ul.breadcrumb li+li:last-child {
     margin: 8px 0 0;
   }
 }
+@font-face {
+  font-family: 'Linux Biolinum';
+  src: url("/fonts/LinBiolinum_Rah.eot");
+  font-display: swap;
+  src: url("/fonts/LinBiolinum_Rah.eot") format('embedded-opentype'), url("/fonts/LinBiolinum_Rah.woff2") format('woff2'), url("/fonts/LinBiolinum_Rah.woff") format('woff'), url("/fonts/LinBiolinum_Rah.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Linux Biolinum';
+  src: url("/fonts/LinBiolinum_RBah.eot");
+  font-display: swap;
+  src: url("/fonts/LinBiolinum_RBah.eot") format('embedded-opentype'), url("/fonts/LinBiolinum_RBah.woff2") format('woff2'), url("/fonts/LinBiolinum_RBah.woff") format('woff'), url("/fonts/LinBiolinum_RBah.ttf") format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Linux Biolinum';
+  src: url("/fonts/LinBiolinum_RIah.eot");
+  font-display: swap;
+  src: url("/fonts/LinBiolinum_RIah.eot") format('embedded-opentype'), url("/fonts/LinBiolinum_RIah.woff2") format('woff2'), url("/fonts/LinBiolinum_RIah.woff") format('woff'), url("/fonts/LinBiolinum_RIah.ttf") format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Noto Serif SC';
+  src: url("/fonts/NotoSerifCJKsc-Regular.otf");
+  font-weight: 400;
+  font-style: normal;
+}
 body {
-  background: url("https://cn.bing.com/th?id=OHR.CasaBatllo_ZH-CN2826447794_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp");
-  background-attachment: fixed;
-  background-size: 100% 100%;
-  opacity: 0.9;
+  background: rgba(0,0,0,0.9);
 }
 .site-meta {
   opacity: 0.9;
@@ -2973,6 +3000,15 @@ body {
   background-color: #fff;
 }
 .footer-inner .copyright {
-  color: #e2625d;
-  background: rgba(255,255,255,0.2);
+  color: #d2691e;
+}
+.backstretch {
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  height: 740px;
+  width: 1435px;
+  position: fixed;
 }
