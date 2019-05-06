@@ -106,7 +106,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="1.iframe跳转             获取iframe里的内容:主要的两个API就是contentWindow,和contentDocumentiframe.contentWindow, 获取iframe的window对象iframe.contentDocument, 获取iframe的document对象这两个API只是DOM节点提供的方式(即getELement系列对象)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-06T07:05:07.508Z">
+<meta property="og:updated_time" content="2019-05-06T07:08:52.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于iframe的一些问题">
 <meta name="twitter:description" content="1.iframe跳转             获取iframe里的内容:主要的两个API就是contentWindow,和contentDocumentiframe.contentWindow, 获取iframe的window对象iframe.contentDocument, 获取iframe的document对象这两个API只是DOM节点提供的方式(即getELement系列对象)">
@@ -335,7 +335,7 @@
                 
               
 
-              <time title="创建时间：2019-05-06 12:55:58 / 修改时间：15:05:07" itemprop="dateCreated datePublished" datetime="2019-05-06T12:55:58+08:00">2019-05-06</time>
+              <time title="创建时间：2019-05-06 12:55:58 / 修改时间：15:08:52" itemprop="dateCreated datePublished" datetime="2019-05-06T12:55:58+08:00">2019-05-06</time>
             
 
             
@@ -399,7 +399,7 @@
 <div class="note info">
             <p><b>在iframe获取父级内容:</b><br>window.parent 获取上一级的window对象，如果还是iframe则是该iframe的window对象<br>window.top 获取最顶级容器的window对象，即，就是你打开页面的文档</p>
           </div>
-<iframe width="750" height="400" src="http://localhost:4000/2019/05/06/iframeIndex/" scrolling="no" frameborder="0"></iframe>
+<iframe width="750" height="400" src="../iframeIndex/" scrolling="no" frameborder="0"></iframe>
 
 <h4 id="2-iframe-混合内容错误-引发安全阻塞-mixed-content"><a href="#2-iframe-混合内容错误-引发安全阻塞-mixed-content" class="headerlink" title="2.iframe 混合内容错误 引发安全阻塞 mixed content"></a>2.iframe 混合内容错误 引发安全阻塞 mixed content</h4><p>浏览器默认是不允许在 https 里面引用 http 资源的，一般都会弹出提示框<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;upgrade-insecure-requests&quot;&gt;</span><br></pre></td></tr></table></figure></p>
 <p><iframe width="750" height="400" src="http://player.youku.com/embed/XMTU4MTY4OTg5Mg==" scrolling="no" frameborder="0"></iframe><br>提供有用的解决办法（最优1，其次2，向下排）<br>1.把iframe中的http升级成https。<br>2.https站点降级http，就能访问iframe http。<br>3.通过nigix做映射，页面写访问https，但nigix接收后转成http发送出去。</p>
