@@ -98,17 +98,17 @@
 
 
 
-  <meta name="description" content="iframe3内部跳转 iframe3父级跳转      console.log(&apos;[debug code start]&apos;)     console.log(&apos;[parent] &apos; + window.parent.location.href)     console.log(&apos;[top] &apos; + window.top.location.href)     console.log(&apos;[self] &apos;">
+  <meta name="description" content="使用window.location.href 使用(window.parent / window.top).location.href   iframe内部跳转 iframe父级跳转 A标签跳转A标签target跳转  .btn-info{box-sizing: border-box;margin-top:20px;text-align:center;}       console.log(&apos;[d">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iframe3内嵌页面">
-<meta property="og:url" content="http://yoursite.com/2019/05/07/iframe3/index.html">
+<meta property="og:title" content="iframe1内嵌页面">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/iframe/iframeIndex/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="iframe3内部跳转 iframe3父级跳转      console.log(&apos;[debug code start]&apos;)     console.log(&apos;[parent] &apos; + window.parent.location.href)     console.log(&apos;[top] &apos; + window.top.location.href)     console.log(&apos;[self] &apos;">
+<meta property="og:description" content="使用window.location.href 使用(window.parent / window.top).location.href   iframe内部跳转 iframe父级跳转 A标签跳转A标签target跳转  .btn-info{box-sizing: border-box;margin-top:20px;text-align:center;}       console.log(&apos;[d">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-07T00:46:26.784Z">
+<meta property="og:updated_time" content="2019-05-07T00:57:34.865Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iframe3内嵌页面">
-<meta name="twitter:description" content="iframe3内部跳转 iframe3父级跳转      console.log(&apos;[debug code start]&apos;)     console.log(&apos;[parent] &apos; + window.parent.location.href)     console.log(&apos;[top] &apos; + window.top.location.href)     console.log(&apos;[self] &apos;">
+<meta name="twitter:title" content="iframe1内嵌页面">
+<meta name="twitter:description" content="使用window.location.href 使用(window.parent / window.top).location.href   iframe内部跳转 iframe父级跳转 A标签跳转A标签target跳转  .btn-info{box-sizing: border-box;margin-top:20px;text-align:center;}       console.log(&apos;[d">
 
 
 
@@ -116,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/07/iframe3/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/06/iframe/iframeIndex/">
 
 
 
@@ -126,7 +126,7 @@
   };
 </script>
 
-  <title>iframe3内嵌页面 | </title>
+  <title>iframe1内嵌页面 | </title>
   
 
 
@@ -291,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/iframe3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/iframe/iframeIndex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GENEVA JIE">
@@ -308,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iframe3内嵌页面
+          <h1 class="post-title" itemprop="name headline">iframe1内嵌页面
 
               
             
@@ -334,12 +334,24 @@
                 
               
 
-              <time title="创建时间：2019-05-07 08:46:08 / 修改时间：08:46:26" itemprop="dateCreated datePublished" datetime="2019-05-07T08:46:08+08:00">2019-05-07</time>
+              <time title="创建时间：2019-05-06 13:05:02" itemprop="dateCreated datePublished" datetime="2019-05-06T13:05:02+08:00">2019-05-06</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-07 08:57:34" itemprop="dateModified" datetime="2019-05-07T08:57:34+08:00">2019-05-07</time>
               
             
           </span>
@@ -373,14 +385,26 @@
       
 
       
-        <p><button class="btn pullquote left" onclick="jump()">iframe3内部跳转</button></p>
-<p><button class="btn pullquote right" onclick="jump2()">iframe3父级跳转</button></p>
+        <p></p><p class="pullquote left">使用window.location.href</p><p></p>
+<p></p><p class="pullquote right">使用(window.parent / window.top).location.href</p><p></p>
+<p></p><p id="tip" class="pullquote left"></p><p></p>
+<p></p><p id="tip2" class="pullquote right"></p><p></p>
+<p><button class="btn pullquote left" onclick="jump()">iframe内部跳转</button></p>
+<p><button class="btn pullquote right" onclick="jump2()">iframe父级跳转</button></p>
+<p></p><p style="height:40px"></p><br><a href="//www.baidu.com" target class="btn-info btn pullquote left">A标签跳转</a><br><a href="//www.baidu.com" target="_parent" class="btn-info btn pullquote right">A标签target跳转</a><p></p>
+<p></p><p style="height:40px"></p><p></p>
+<p><style>.btn-info{box-sizing: border-box;margin-top:20px;text-align:center;}</style></p>
+<p><iframe width="750" height="900" src="../iframe2/"></iframe></p>
 <script type="text/javascript">
     console.log('[debug code start]')
     console.log('[parent] ' + window.parent.location.href)
     console.log('[top] ' + window.top.location.href)
     console.log('[self] ' + window.self.location.href)
     console.log('[debug code end]')
+    var path = window.location.href;
+    var path2 = window.parent.location.href;
+    document.getElementById('tip').innerHTML = path;
+    document.getElementById('tip2').innerHTML = path2;
     function jump(){window.location.href = 'https://www.baidu.com'}
     function jump2(){window.top.location.href = 'http://www.baidu.com'}
 </script>
@@ -413,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/06/iframe2/" rel="next" title="iframe2内嵌页面">
-                <i class="fa fa-chevron-left"></i> iframe2内嵌页面
+              <a href="/2019/05/06/iframe/iframe/" rel="next" title="关于iframe的一些问题">
+                <i class="fa fa-chevron-left"></i> 关于iframe的一些问题
               </a>
             
           </div>
@@ -422,6 +446,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/06/iframe/iframe2/" rel="prev" title="iframe2内嵌页面">
+                iframe2内嵌页面 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
