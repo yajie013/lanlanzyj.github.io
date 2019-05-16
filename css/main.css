@@ -1806,7 +1806,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #acde63;
+  background: #d03cd7;
 }
 .feed-link,
 .chat {
@@ -3028,8 +3028,6 @@ ul.breadcrumb li+li:last-child {
 @font-face {
   font-family: 'Noto Serif SC';
   src: url("/fonts/NotoSerifCJKsc-Regular.otf");
-  font-display: swap;
-  src: url("/fonts/LinBiolinum_RIah.eot") format('embedded-opentype'), url("/fonts/LinBiolinum_RIah.woff2") format('woff2'), url("/fonts/LinBiolinum_RIah.woff") format('woff'), url("/fonts/LinBiolinum_RIah.ttf") format('truetype');
   font-weight: 400;
   font-style: normal;
 }
