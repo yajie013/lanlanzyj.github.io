@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<!-- CSP 网站内容安全策略 -->
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="[[TOC]] Mac OSX 常见命令集  列出文件　　12ls 参数 目录名参数: -w 显示中文，-l 详细信息， -a 包括隐藏文件      转换目录　　1cd /systeam">
+<meta property="og:type" content="article">
+<meta property="og:title">
+<meta property="og:url" content="http://yoursite.com/2019/05/16/Mac OS X 相关命令/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="[[TOC]] Mac OSX 常见命令集  列出文件　　12ls 参数 目录名参数: -w 显示中文，-l 详细信息， -a 包括隐藏文件      转换目录　　1cd /systeam">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-16T03:36:48.611Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title">
+<meta name="twitter:description" content="[[TOC]] Mac OSX 常见命令集  列出文件　　12ls 参数 目录名参数: -w 显示中文，-l 详细信息， -a 包括隐藏文件      转换目录　　1cd /systeam">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/05/16/Mac OS X 相关命令/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | </title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/Mac OS X 相关命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GENEVA JIE">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-16 11:26:24 / 修改时间：11:36:48" itemprop="dateCreated datePublished" datetime="2019-05-16T11:26:24+08:00">2019-05-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[[TOC]]</p>
+<h3 id="Mac-OSX-常见命令集"><a href="#Mac-OSX-常见命令集" class="headerlink" title="Mac OSX 常见命令集"></a>Mac OSX 常见命令集</h3><blockquote>
+<ul>
+<li>列出文件　　<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls 参数 目录名</span><br><span class="line">参数: -w 显示中文，-l 详细信息， -a 包括隐藏文件</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>转换目录　　<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /systeam</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<ul>
+<li>建立新目录<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir 目录名</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>拷贝文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp 参数(-R) 源文件 目标文件</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>删除文件　<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm 参数 文件</span><br><span class="line"><span class="comment">#参数-rf 表示递归和强制，千万要小心使用，如果执行了 rm -rf / 你的系统就全没了</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>更改文件权限　　<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 参数 权限 文件</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>更改文件属主　　<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown 参数 用户:组 文件</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>修复整个系统中文件的权限　　<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil repairpermissions /</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>文本编辑　　<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nano 文件名</span><br><span class="line"><span class="comment">#例：编辑</span></span><br><span class="line">nano Info.plist　　nano /System/Library/Extensions/Natit.kext/Info.plist</span><br><span class="line"><span class="comment">#编辑完成后用 Ctrl +O 存盘，Ctrl+X 退出</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="SVN常用命令"><a href="#SVN常用命令" class="headerlink" title="SVN常用命令"></a>SVN常用命令</h3><blockquote>
+<p>1、将文件checkout到本地目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">svn checkout path（path是服务器上的目录）</span><br><span class="line"><span class="comment"># 列子</span></span><br><span class="line">svn checkout svn://192.168.1.1/pro/domain </span><br><span class="line"><span class="comment"># 简写</span></span><br><span class="line">svn co</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>2、往版本库中添加新的文件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">svn add file </span><br><span class="line"><span class="comment">#例如：</span></span><br><span class="line">svn add test.php(添加test.php) </span><br><span class="line">svn add *.php(添加当前目录下所有的php文件)</span><br><span class="line">``` </span><br><span class="line">&gt;* 3、将改动的文件提交到版本库 </span><br><span class="line">```bash</span><br><span class="line">svn commit -m “LogMessage“ [-N] [--no-unlock] PATH(如果选择了保持锁，就使用–no-unlock开关) </span><br><span class="line"><span class="comment">#例如：</span></span><br><span class="line">svn commit -m “add <span class="built_in">test</span> file <span class="keyword">for</span> my <span class="built_in">test</span>“ test.php </span><br><span class="line"><span class="comment">#简写：</span></span><br><span class="line">svn ci</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>4、加锁/解锁 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">svn lock -m “LockMessage“ [--force] PATH </span><br><span class="line"><span class="comment">#例如：</span></span><br><span class="line">svn lock -m “lock <span class="built_in">test</span> file“ test.php </span><br><span class="line">svn unlock PATH</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>5、更新到某个版本 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">svn update -r m path </span><br><span class="line"><span class="comment">#例如： </span></span><br><span class="line">svn update如果后面没有目录，默认将当前目录以及子目录下的所有文件都更新到最新版本。 </span><br><span class="line">svn update -r 200 test.php(将版本库中的文件test.php还原到版本200) </span><br><span class="line">svn update test.php(更新，于版本库同步。如果在提交的时候提示过期的话，是因为冲突，需要先update，修改文件，然后清除svn resolved，最后再提交commit) </span><br><span class="line"><span class="comment">#简写：</span></span><br><span class="line">svn up</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>6、查看文件或者目录状态 </li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">svn status path（目录下的文件和子目录的状态，正常状态不显示） </span><br><span class="line"><span class="comment">#?：不在svn的控制中；</span></span><br><span class="line"><span class="comment">#M：内容被修改；</span></span><br><span class="line"><span class="comment">#C：发生冲突；</span></span><br><span class="line"><span class="comment">#A：预定加入到版本库；</span></span><br><span class="line"><span class="comment">#K：被锁定</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#显示文件和子目录状态</span></span><br><span class="line">svn status -v path </span><br><span class="line"><span class="comment">#第一列保持相同，第二列显示工作版本号，第三和第四列显示最后一次修改的版本号和修改人。 </span></span><br><span class="line"><span class="comment">#注：svn status、svn diff和 svn revert这三条命令在没有网络的情况下也可以执行的，原因是svn在本地的.svn中保留了本地版本的原始拷贝。 </span></span><br><span class="line"><span class="comment">#简写：</span></span><br><span class="line">svn st</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>7、删除文件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">svn delete path -m “delete <span class="built_in">test</span> fle“ </span><br><span class="line">例如：svn delete svn://192.168.1.1/pro/domain/test.php -m “delete <span class="built_in">test</span> file” </span><br><span class="line">或者直接svn delete test.php 然后再svn ci -m ‘delete <span class="built_in">test</span> file‘，推荐使用这种 </span><br><span class="line">简写：svn (del, remove, rm)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>8、查看日志 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn <span class="built_in">log</span> path </span><br><span class="line">例如：svn <span class="built_in">log</span> test.php 显示这个文件的所有修改记录，及其版本号的变化</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>9、查看文件详细信息 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn info path </span><br><span class="line">例如：svn info test.php</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>10、比较差异 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">svn diff path(将修改的文件与基础版本比较) </span><br><span class="line">例如：svn diff test.php </span><br><span class="line">svn diff -r m:n path(对版本m和版本n比较差异) </span><br><span class="line">例如：svn diff -r 200:201 test.php </span><br><span class="line">简写：svn di</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>11、将两个版本之间的差异合并到当前文件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn merge -r m:n path </span><br><span class="line">例如：svn merge -r 200:205 test.php（将版本200与205之间的差异合并到当前文件，但是一般都会产生冲突，需要处理一下）</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>12、SVN 帮助 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn <span class="built_in">help</span> </span><br><span class="line">svn <span class="built_in">help</span> ci</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>——————————————————————————<br>以上是常用命令，下面写几个不经常用的<br>—————————————————————————— </p>
+<blockquote>
+<ul>
+<li>13、版本库下的文件和目录列表 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn list path </span><br><span class="line">显示path目录下的所有属于版本库的文件和目录 </span><br><span class="line">简写：svn ls</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>14、创建纳入版本控制下的新目录 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">svn mkdir: 创建纳入版本控制下的新目录。 </span><br><span class="line">&gt;&gt;* 用法: 1、mkdir PATH… </span><br><span class="line">2、mkdir URL… </span><br><span class="line">创建版本控制的目录。 </span><br><span class="line">1、每一个以工作副本 PATH 指定的目录，都会创建在本地端，并且加入新增 </span><br><span class="line">调度，以待下一次的提交。 </span><br><span class="line">2、每个以URL指定的目录，都会透过立即提交于仓库中创建。 </span><br><span class="line">在这两个情况下，所有的中间目录都必须事先存在。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>15、恢复本地修改 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">svn revert: 恢复原始未改变的工作副本文件 (恢复大部份的本地修改)。revert: </span><br><span class="line">用法: revert PATH… </span><br><span class="line">注意: 本子命令不会存取网络，并且会解除冲突的状况。但是它不会恢复 </span><br><span class="line">被删除的目录</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>16、代码库URL变更 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">svn switch (sw): 更新工作副本至不同的URL。 </span><br><span class="line">用法: 1、switch URL [PATH] </span><br><span class="line">2、switch –relocate FROM TO [PATH...] </span><br><span class="line">1、更新你的工作副本，映射到一个新的URL，其行为跟“svn update”很像，也会将 </span><br><span class="line">服务器上文件与本地文件合并。这是将工作副本对应到同一仓库中某个分支或者标记的 </span><br><span class="line">方法。 </span><br><span class="line">2、改写工作副本的URL元数据，以反映单纯的URL上的改变。当仓库的根URL变动 </span><br><span class="line">(比如方案名或是主机名称变动)，但是工作副本仍旧对映到同一仓库的同一目录时使用 </span><br><span class="line">这个命令更新工作副本与仓库的对应关系。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>17、解决冲突 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">svn resolved: 移除工作副本的目录或文件的“冲突”状态。 </span><br><span class="line">用法: resolved PATH… </span><br><span class="line">注意: 本子命令不会依语法来解决冲突或是移除冲突标记；它只是移除冲突的 </span><br><span class="line">相关文件，然后让 PATH 可以再次提交。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>18、输出指定文件或URL的内容<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn cat 目标[@版本]…如果指定了版本，将从指定的版本开始查找</span><br><span class="line">svn cat -r PREV filename &gt; filename (PREV 是上一版本,也可以写具体版本号,这样输出结果是可以提交的)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="apachectl常用命令"><a href="#apachectl常用命令" class="headerlink" title="apachectl常用命令"></a>apachectl常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看状态</span></span><br><span class="line">apachectl status </span><br><span class="line"><span class="comment">#启动/停止/重启服务 </span></span><br><span class="line">sudo apachectl start/stop/restart</span><br><span class="line"><span class="comment">#测试 apache 配置是否有问题 </span></span><br><span class="line">sudo apachectl configtest</span><br><span class="line"><span class="comment"># 查看apache目录</span></span><br><span class="line"><span class="built_in">cd</span> /etc/apache2</span><br><span class="line"><span class="comment">#修改apache配置文件</span></span><br><span class="line">sudo vi httpd.conf</span><br></pre></td></tr></table></figure>
+<h3 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;远程分支&gt;</span><br><span class="line">git fetch</span><br><span class="line">git pull</span><br><span class="line">切分支</span><br><span class="line">分支代码</span><br></pre></td></tr></table></figure>
+<h3 id="配置ssh"><a href="#配置ssh" class="headerlink" title="配置ssh"></a>配置ssh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置key</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"geneva@foxmail.com"</span></span><br><span class="line"><span class="comment"># 拷贝文件</span></span><br><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br><span class="line"><span class="comment"># 测试连通</span></span><br><span class="line">ssh -T genevajie@bitbucket.org</span><br></pre></td></tr></table></figure>
+<h3 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h3><blockquote>
+<p>1、scp命令 用于Linux之间复制文件和目录。</p>
+</blockquote>
+<p>scp是 secure copy的缩写, scp是linux系统下基于ssh登陆进行安全的远程文件拷贝命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp [可选参数] file_source file_target</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2、 tail命令 用于查看文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tail [参数] [文件]</span><br><span class="line"><span class="comment">#-f 循环读取</span></span><br><span class="line"><span class="comment">#-q 不显示处理信息</span></span><br><span class="line"><span class="comment">#-v 显示详细的处理信息</span></span><br><span class="line"><span class="comment">#-c&lt;数目&gt; 显示的字节数</span></span><br><span class="line"><span class="comment">#-n&lt;行数&gt; 显示文件的尾部 n 行内容</span></span><br><span class="line"><span class="comment">#--pid=PID 与-f合用,表示在进程ID,PID死掉之后结束</span></span><br><span class="line"><span class="comment">#-q, --quiet, --silent 从不输出给出文件名的首部</span></span><br><span class="line"><span class="comment">#-s, --sleep-interval=S 与-f合用,表示在每次反复的间隔休眠S秒</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>3、 pbcopy pbpaste </p>
+</blockquote>
+<h3 id="更新线🧵"><a href="#更新线🧵" class="headerlink" title="更新线🧵"></a>更新线🧵</h3><h3 id="osx-查看隐藏文件方式"><a href="#osx-查看隐藏文件方式" class="headerlink" title="osx 查看隐藏文件方式"></a>osx 查看隐藏文件方式</h3><blockquote>
+<ul>
+<li>cd 到你要查看的目录下<br>ls -a 即可查看隐藏文件</li>
+<li>如果要整个系统中显示隐藏文件 可以在terminal终端中输入如下命令</li>
+<li>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 显示隐藏文件</span><br><span class="line">defaults write com.apple.finder AppleShowAllFiles -bool true</span><br><span class="line"># 关闭显示隐藏文件</span><br><span class="line">defaults write com.apple.finder AppleShowAllFiles -bool false</span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/16/OSX中的mysql/" rel="next" title="Mac OS X中的mysql">
+                <i class="fa fa-chevron-left"></i> Mac OS X中的mysql
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="GENEVA JIE">
+            
+              <p class="site-author-name" itemprop="name">GENEVA JIE</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac-OSX-常见命令集"><span class="nav-number">1.</span> <span class="nav-text">Mac OSX 常见命令集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVN常用命令"><span class="nav-number">2.</span> <span class="nav-text">SVN常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apachectl常用命令"><span class="nav-number">3.</span> <span class="nav-text">apachectl常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git常用命令"><span class="nav-number">4.</span> <span class="nav-text">git常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置ssh"><span class="nav-number">5.</span> <span class="nav-text">配置ssh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux命令"><span class="nav-number">6.</span> <span class="nav-text">Linux命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新线🧵"><span class="nav-number">7.</span> <span class="nav-text">更新线🧵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osx-查看隐藏文件方式"><span class="nav-number">8.</span> <span class="nav-text">osx 查看隐藏文件方式</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GENEVA JIE</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+      <div class="backstretch" style="z-index: -999999">
+    <img src="https://cn.bing.com/th?id=OHR.CasaBatllo_ZH-CN2826447794_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 1435px; height: 989.13px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -124.565px;">
+</div>
+<div class="backstretch" style="z-index:-1;background-color:rgba(0,0,0,.5)">&nbsp;</div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  <div>
+  </div>
+    
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  <script async src="/js/cursor/love.min.js"></script>
+
+</body>
+</html>
