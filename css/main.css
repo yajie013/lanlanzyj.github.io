@@ -1806,7 +1806,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c15bf0;
+  background: #25ac44;
 }
 .feed-link,
 .chat {
@@ -3032,7 +3032,7 @@ ul.breadcrumb li+li:last-child {
   font-style: normal;
 }
 body {
-  background: rgba(0,0,0,0.9);
+  background: #b3b3b3;
 }
 .site-meta {
   opacity: 0.9;
