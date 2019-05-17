@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2019/05/17/RSS%E8%AE%A2%E9%98%85%E5%88%97%E8%A1%A8/</loc>
+    <loc>http://yoursite.com/2019/05/16/record_singapore/</loc>
     
-    <lastmod>2019-05-17T02:32:32.126Z</lastmod>
+    <lastmod>2019-05-17T06:10:58.542Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/05/17/RSS/</loc>
+    
+    <lastmod>2019-05-17T06:08:44.555Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/05/16/Mac%20OS%20X%20%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2019-05-17T05:56:47.466Z</lastmod>
     
   </url>
   
@@ -16,23 +30,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/05/16/%E6%96%B0%E5%8A%A0%E5%9D%A1%E7%9A%84%E5%8D%97%E6%B4%8B%E6%96%87%E5%8C%96/</loc>
-    
-    <lastmod>2019-05-17T00:49:20.433Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/05/05/hexo/HEXO%E5%B8%B8%E7%94%A8%E6%A0%B7%E5%BC%8F(%E4%BA%8C)/</loc>
     
     <lastmod>2019-05-16T08:30:56.790Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/05/16/Mac%20OS%20X%20%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2019-05-16T08:03:29.645Z</lastmod>
     
   </url>
   
