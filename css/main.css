@@ -1817,7 +1817,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #81ff9f;
+  background: #653d5b;
 }
 .feed-link,
 .chat {
@@ -3044,6 +3044,11 @@ body {
   color: #000;
   background: #b3b3b3;
 }
+.main {
+  background: url("https://cn.bing.com/th?id=OHR.CasaBatllo_ZH-CN2826447794_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp");
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
 .site-meta {
   opacity: 0.9;
 }
@@ -3052,16 +3057,6 @@ body {
 }
 .footer-inner .copyright {
   color: #d2691e;
-}
-.backstretch {
-  left: 0px;
-  top: 0px;
-  overflow: hidden;
-  margin: 0px;
-  padding: 0px;
-  height: 740px;
-  width: 1435px;
-  position: fixed;
 }
 span#inline-toc {
   display: inline-block;
