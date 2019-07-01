@@ -105,19 +105,21 @@
 
 
 
-  <meta name="description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15 mysql 增删改查语言规则:              关键字和函数名称大写数据库名称、表名称、字段名称全部小写            新建数据库 create database test; 删除数据库 delete database test; 查mysql版本及安装情况 status 一、查询创建删除用户 查询m">
+  <meta name="description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15">
 <meta name="keywords" content="mysql brew">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac下 MySQL使用">
 <meta property="og:url" content="http://yoursite.com/2019/07/01/mysql2/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15 mysql 增删改查语言规则:              关键字和函数名称大写数据库名称、表名称、字段名称全部小写            新建数据库 create database test; 删除数据库 delete database test; 查mysql版本及安装情况 status 一、查询创建删除用户 查询m">
+<meta property="og:description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-01T03:02:03.345Z">
+<meta property="og:updated_time" content="2019-07-01T03:06:49.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下 MySQL使用">
-<meta name="twitter:description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15 mysql 增删改查语言规则:              关键字和函数名称大写数据库名称、表名称、字段名称全部小写            新建数据库 create database test; 删除数据库 delete database test; 查mysql版本及安装情况 status 一、查询创建删除用户 查询m">
+<meta name="twitter:description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15">
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title type="application/atom+xml">
@@ -344,7 +346,7 @@
                 
               
 
-              <time title="创建时间：2019-07-01 11:01:30 / 修改时间：11:02:03" itemprop="dateCreated datePublished" datetime="2019-07-01T11:01:30+08:00">2019-07-01</time>
+              <time title="创建时间：2019-07-01 11:01:30 / 修改时间：11:06:49" itemprop="dateCreated datePublished" datetime="2019-07-01T11:01:30+08:00">2019-07-01</time>
             
 
             
@@ -403,34 +405,72 @@
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>操作系统: mac osx 10.14.3</p>
 <p>MySQL版本: 8.0.15</p>
-<h3 id="mysql-增删改查"><a href="#mysql-增删改查" class="headerlink" title="mysql 增删改查"></a>mysql 增删改查</h3><p>语言规则:</p>
+<a id="more"></a>
+<h3 id="mysql-命令增删改查"><a href="#mysql-命令增删改查" class="headerlink" title="mysql 命令增删改查"></a>mysql 命令增删改查</h3><p>语言规则:</p>
 <div class="note primary">
             <p>关键字和函数名称大写<br>数据库名称、表名称、字段名称全部小写</p>
           </div>
-<p>新建数据库</p>
+<p>1、新建数据库</p>
 <pre><code>create database test;
-</code></pre><p>删除数据库</p>
+</code></pre><p>2、删除数据库</p>
 <pre><code>delete database test;
-</code></pre><p>查mysql版本及安装情况</p>
+</code></pre><p>3、查mysql版本及安装情况</p>
 <pre><code>status
 </code></pre><p>一、查询创建删除用户</p>
-<p>查询mysql所有用户：</p>
+<p>1、查询mysql所有用户：</p>
 <pre><code>select user,host from mysql.user;
-</code></pre><p>创建用户：</p>
+</code></pre><p>2、创建用户：</p>
 <pre><code>create user &apos;test&apos;@&apos;localhost&apos; identified by &apos;123456&apos;;
 </code></pre><p>（注：单引号和双引号都可以，test为新建用户名，localhost为允许test用户访问的主机，localhost表示只能在本机登录，%代表所有的电脑都可以登录，’123456’表示test用户的登录密码）</p>
-<p>修改用户：</p>
+<p>3、修改用户：</p>
 <pre><code>update mysql.user set authentication_string=(&apos;新密码&apos;) where user=&quot;test&quot; and host=&quot;localhost&quot;; 
 </code></pre><p>(mysql5.7版本中没有password字段，使用authentication_string替换了password)，</p>
 <p>flush privileges刷新MySQL的系统权限相关表，修改用户密码和用户权限需要执行，或者重启否则会出现拒绝访问</p>
-<p>删除用户：<br>    drop user ‘test‘@’localhost’;</p>
+<p>4、删除用户：<br>    drop user ‘test‘@’localhost’;</p>
 <p>(test为用户名，localhost为登录主机)</p>
-<p>查看分配用户权限</p>
-<p>查看数据库中某个用户权限：show grants for ‘test‘@’localhost’; (查看test用户在本机的权限)</p>
-<p>给test用户在test数据库分配select,update权限：grant select,update on test.<em> to ‘test‘@’localhost’ identified by ‘123456’;  (test.</em> 表示test数据库中所有数据，‘test‘@’localhost’ 表示本地test 用户,使用’%’ 表示对所有非本地主机授权，不包括localhost。)</p>
-<p>给用户分配所有操作权限：grant all privileges on test.* to ‘test‘@’localhost’ identified by ‘123456’;(grant <strong>**</strong>on<strong>**</strong>to<strong><em>**</em></strong>identified by <strong>**</strong>;)</p>
-<p>删除用户操作权限：revoke all on test.<em> from ‘test‘@’localhost’;   (revoke <em>**</em></em> on <strong>**</strong>from<strong><em>**</em></strong>;)</p>
-
+<p>二、查看分配用户权限</p>
+<p>1、查看数据库中某个用户权限：</p>
+<pre><code>show grants for &apos;test&apos;@&apos;localhost&apos;;     
+</code></pre><p>(查看test用户在本机的权限)</p>
+<p>2、给test用户在test数据库分配select,update权限：</p>
+<pre><code>grant select,update on test.* to &apos;test&apos;@&apos;localhost&apos; identified by &apos;123456&apos;;  
+</code></pre><p>(test.* 表示test数据库中所有数据，‘test‘@’localhost’ 表示本地test 用户,使用’%’ 表示对所有非本地主机授权，不包括localhost。)</p>
+<p>3、给用户分配所有操作权限：</p>
+<pre><code>grant all privileges on test.* to &apos;test&apos;@&apos;localhost&apos; identified by &apos;123456&apos;;
+</code></pre><p>(grant <strong>**</strong>on<strong>**</strong>to<strong><em>**</em></strong>identified by <strong>**</strong>;)</p>
+<p>4、删除用户操作权限：</p>
+<pre><code>revoke all on test.* from &apos;test&apos;@&apos;localhost&apos;;   
+</code></pre><p>(revoke <strong>*</strong> on <strong>**</strong>from<strong><em>**</em></strong>;)</p>
+<p>5、进入数据库</p>
+<p>进入test数据库：<br>    use ‘test’;</p>
+<p>查看当前使用数据库：</p>
+<pre><code>select database(); 
+</code></pre><p>(show databases;为展示所有的数据库)</p>
+<p>查看当前数据库中所有表：</p>
+<pre><code>show tables；
+</code></pre><p>6、建表</p>
+<p>新建：</p>
+<pre><code>create table 表名(字段名 字段类型); 
+</code></pre><p>（多个字段用逗号”,”分隔）</p>
+<p>7、导入sql文件</p>
+<pre><code>source d:/work/文件名.sql;   （此处为正斜杠&quot;/&quot;）
+</code></pre><p>出现问题结束当前行命令使用’\c’；</p>
+<p>退出mysql使用命令’\q’或’exit’</p>
+<p>10、数据库常用命令<br>查看表结构：</p>
+<pre><code>desc 表名；
+</code></pre><p>显示当前用户：</p>
+<pre><code>select user();
+</code></pre><p>显示当前时间：</p>
+<pre><code>select now();
+</code></pre><p>显示当前版本：</p>
+<pre><code>select version();
+</code></pre><p>查看当前使用数据库：</p>
+<pre><code>select database();
+</code></pre><p>删除数据库：</p>
+<pre><code>drop database 数据库名;
+</code></pre><p>删除表名：</p>
+<pre><code>drop table 表名;
+</code></pre>
       
     </div>
 
@@ -644,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-增删改查"><span class="nav-number">2.</span> <span class="nav-text">mysql 增删改查</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-命令增删改查"><span class="nav-number">2.</span> <span class="nav-text">mysql 命令增删改查</span></a></li></ol></div>
             
 
           </div>
