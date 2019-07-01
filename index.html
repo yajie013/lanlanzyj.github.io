@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/mysql/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/mysql2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GENEVA JIE">
@@ -318,7 +318,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/07/01/mysql/" class="post-title-link" itemprop="url">Mac安装MySQL</a>
+                <a href="/2019/07/01/mysql2/" class="post-title-link" itemprop="url">Mac下 MySQL使用</a>
               
             
           </h1>
@@ -343,7 +343,7 @@
                 
               
 
-              <time title="创建时间：2019-07-01 09:40:18 / 修改时间：10:58:08" itemprop="dateCreated datePublished" datetime="2019-07-01T09:40:18+08:00">2019-07-01</time>
+              <time title="创建时间：2019-07-01 11:01:30 / 修改时间：11:02:03" itemprop="dateCreated datePublished" datetime="2019-07-01T11:01:30+08:00">2019-07-01</time>
             
 
             
@@ -404,41 +404,6 @@
           
             <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>操作系统: mac osx 10.14.3</p>
 <p>MySQL版本: 8.0.15</p>
-<p>Mac下安装MySQL有两种方式：1⃣️ dmg安装  2⃣️ brew安装</p>
-<h3 id="安装步骤："><a href="#安装步骤：" class="headerlink" title="安装步骤："></a>安装步骤：</h3><p>一、官方下载dmg安装包进行安装</p>
-<p>1、登陆官网下载</p>
-<p><a href="https://downloads.mysql.com/archives/community/" target="_blank" rel="noopener">https://downloads.mysql.com/archives/community/</a></p>
-<p><img src="/images/sql1.png"></p>
-<p>2、解压出pkg文件</p>
-<p><img src="/images/sql1.png"></p>
-<p>3、安装<br><img src="/images/sql1.png"><br><img src="/images/sql1.png"><br><img src="/images/sql1.png"></p>
-<p>安装完成</p>
-<p>4、测试</p>
-<p>▶️验证是否安装成功，进入/usr/local/mysql/bin/，用ls命令查看是否有mysql<br><img src="/images/sql1.png"><br>▶️启动mysql的服务，输入以下命令：<br>    sudo /usr/local/mysql/support-files/mysql.server start<br>注意，start为启动，那么stop就是停止，全命令如下：<br>    sudo /usr/local/mysql/support-files/mysql.server stop<br>▲修改mysql初始化密码</p>
-<p>避免服务已经启动，所以第一步先关闭mysql的服务</p>
-<pre><code>sudo /usr/local/mysql/support-files/mysql.server stop
-</code></pre><p>开启安全模式启动mysql，这种方式可以不用输入默认密码</p>
-<pre><code>sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables
-</code></pre><p>出现如下画面是启动成功</p>
-<p><img src="/images/mysql2.png"></p>
-<p>此时，关闭这个终端窗口，再重新启动一个</p>
-<p>进入/usr/local/mysql/bin/，以root身份启动mysql</p>
-<p>./mysql -u root<br><img src="/images/mysql3.png"></p>
-<p>输入以下命令修改密码，其中PASSWORD里面就是要设置的密码</p>
-<p>UPDATE mysql.user SET authentication_string=PASSWORD(‘root’) WHERE User=’root’;<br>FLUSH PRIVILEGES;<br><img src="/images/mysql4.png"><br>退出mysql，输入</p>
-<pre><code>quit;
-</code></pre><p>停止mysql服务</p>
-<pre><code>sudo /usr/local/mysql/support-files/mysql.server stop
-</code></pre><p>再启动mysql服务</p>
-<pre><code>sudo /usr/local/mysql/support-files/mysql.server start
-</code></pre><p><img src="/images/mysql5.png"><br><img src="/images/mysql6.png"><br><img src="/images/mysql7.png"><br><img src="/images/mysql8.png"></p>
-<p>使用以下命令进入mysql</p>
-<p>./mysql -u root -p<br> 此时，要求输入密码，就是前面设置的root密码</p>
-<p>测试是否正常<br>    show databases;<br><img src="/images/mysql6.png"></p>
-<p>二、 使用brew命令安装mysql</p>
-<p>1、直接输入</p>
-<p>brew install mysql<br>2、其余步骤参考上述，基本一致。</p>
-<p><a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="noopener">https://brew.sh/index_zh-cn.html</a></p>
 <h3 id="mysql-增删改查"><a href="#mysql-增删改查" class="headerlink" title="mysql 增删改查"></a>mysql 增删改查</h3><p>语言规则:</p>
 <div class="note primary">
             <p>关键字和函数名称大写<br>数据库名称、表名称、字段名称全部小写</p>
@@ -459,8 +424,186 @@
 <pre><code>update mysql.user set authentication_string=(&apos;新密码&apos;) where user=&quot;test&quot; and host=&quot;localhost&quot;; 
 </code></pre><p>(mysql5.7版本中没有password字段，使用authentication_string替换了password)，</p>
 <p>flush privileges刷新MySQL的系统权限相关表，修改用户密码和用户权限需要执行，或者重启否则会出现拒绝访问</p>
+<p>删除用户：<br>    drop user ‘test‘@’localhost’;</p>
+<p>(test为用户名，localhost为登录主机)</p>
+<p>查看分配用户权限</p>
+<p>查看数据库中某个用户权限：show grants for ‘test‘@’localhost’; (查看test用户在本机的权限)</p>
+<p>给test用户在test数据库分配select,update权限：grant select,update on test.<em> to ‘test‘@’localhost’ identified by ‘123456’;  (test.</em> 表示test数据库中所有数据，‘test‘@’localhost’ 表示本地test 用户,使用’%’ 表示对所有非本地主机授权，不包括localhost。)</p>
+<p>给用户分配所有操作权限：grant all privileges on test.* to ‘test‘@’localhost’ identified by ‘123456’;(grant <strong>**</strong>on<strong>**</strong>to<strong><em>**</em></strong>identified by <strong>**</strong>;)</p>
+<p>删除用户操作权限：revoke all on test.<em> from ‘test‘@’localhost’;   (revoke <em>**</em></em> on <strong>**</strong>from<strong><em>**</em></strong>;)</p>
 
           
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GENEVA JIE">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/01/mysql/" class="post-title-link" itemprop="url">Mac安装MySQL</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-01 09:40:18 / 修改时间：11:02:18" itemprop="dateCreated datePublished" datetime="2019-07-01T09:40:18+08:00">2019-07-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/mysql-brew/" itemprop="url" rel="index"><span itemprop="name">mysql brew</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>操作系统: mac osx 10.14.3</p>
+<p>MySQL版本: 8.0.15</p>
+<p>Mac下安装MySQL有两种方式：1⃣️ dmg安装  2⃣️ brew安装</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/01/mysql/#more" rel="contents">
+                Read More &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1541,188 +1684,6 @@ ____||_____       ========第三次🤝========&gt;                 ___ ||_____
 
       
     
-      
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/Mac OS X 相关命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GENEVA JIE">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/16/Mac OS X 相关命令/" class="post-title-link" itemprop="url">Mac OS X相关命令 持续更...</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-16 11:26:24" itemprop="dateCreated datePublished" datetime="2019-05-16T11:26:24+08:00">2019-05-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-17 13:56:47" itemprop="dateModified" datetime="2019-05-17T13:56:47+08:00">2019-05-17</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Mac-OSX-常见命令集"><a href="#Mac-OSX-常见命令集" class="headerlink" title="Mac OSX 常见命令集"></a>Mac OSX 常见命令集</h3><p>1、列出文件　　<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls 参数 目录名</span><br><span class="line">参数: -w 显示中文，-l 详细信息， -a 包括隐藏文件</span><br></pre></td></tr></table></figure></p>
-<p>2、转换目录　　<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /systeam</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/16/Mac OS X 相关命令/#more" rel="contents">
-                Read More &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-      
-    
   </section>
 
   
@@ -1771,7 +1732,7 @@ ____||_____       ========第三次🤝========&gt;                 ___ ||_____
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -105,13 +105,13 @@
 
 
 
-  <meta name="description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15 Mac下安装MySQL有两种方式：1⃣️ dmg安装  2⃣️ brew安装 安装步骤：一、官方下载dmg安装包进行安装 1、登陆官网下载 https://downloads.mysql.com/archives/community/  2、解压出pkg文件  3、安装 安装完成 4、测试 ▶️验证是否安装成功，进入/">
+  <meta name="description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15 Mac下安装MySQL有两种方式：1⃣️ dmg安装  2⃣️ brew安装">
 <meta name="keywords" content="mysql brew">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac安装MySQL">
 <meta property="og:url" content="http://yoursite.com/2019/07/01/mysql/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15 Mac下安装MySQL有两种方式：1⃣️ dmg安装  2⃣️ brew安装 安装步骤：一、官方下载dmg安装包进行安装 1、登陆官网下载 https://downloads.mysql.com/archives/community/  2、解压出pkg文件  3、安装 安装完成 4、测试 ▶️验证是否安装成功，进入/">
+<meta property="og:description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15 Mac下安装MySQL有两种方式：1⃣️ dmg安装  2⃣️ brew安装">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/sql1.png">
 <meta property="og:image" content="http://yoursite.com/images/sql1.png">
@@ -127,10 +127,10 @@
 <meta property="og:image" content="http://yoursite.com/images/mysql7.png">
 <meta property="og:image" content="http://yoursite.com/images/mysql8.png">
 <meta property="og:image" content="http://yoursite.com/images/mysql6.png">
-<meta property="og:updated_time" content="2019-07-01T02:58:08.524Z">
+<meta property="og:updated_time" content="2019-07-01T03:02:18.829Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac安装MySQL">
-<meta name="twitter:description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15 Mac下安装MySQL有两种方式：1⃣️ dmg安装  2⃣️ brew安装 安装步骤：一、官方下载dmg安装包进行安装 1、登陆官网下载 https://downloads.mysql.com/archives/community/  2、解压出pkg文件  3、安装 安装完成 4、测试 ▶️验证是否安装成功，进入/">
+<meta name="twitter:description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15 Mac下安装MySQL有两种方式：1⃣️ dmg安装  2⃣️ brew安装">
 <meta name="twitter:image" content="http://yoursite.com/images/sql1.png">
 
 
@@ -361,7 +361,7 @@
                 
               
 
-              <time title="创建时间：2019-07-01 09:40:18 / 修改时间：10:58:08" itemprop="dateCreated datePublished" datetime="2019-07-01T09:40:18+08:00">2019-07-01</time>
+              <time title="创建时间：2019-07-01 09:40:18 / 修改时间：11:02:18" itemprop="dateCreated datePublished" datetime="2019-07-01T09:40:18+08:00">2019-07-01</time>
             
 
             
@@ -421,6 +421,7 @@
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>操作系统: mac osx 10.14.3</p>
 <p>MySQL版本: 8.0.15</p>
 <p>Mac下安装MySQL有两种方式：1⃣️ dmg安装  2⃣️ brew安装</p>
+<a id="more"></a>
 <h3 id="安装步骤："><a href="#安装步骤：" class="headerlink" title="安装步骤："></a>安装步骤：</h3><p>一、官方下载dmg安装包进行安装</p>
 <p>1、登陆官网下载</p>
 <p><a href="https://downloads.mysql.com/archives/community/" target="_blank" rel="noopener">https://downloads.mysql.com/archives/community/</a></p>
@@ -455,26 +456,6 @@
 <p>1、直接输入</p>
 <p>brew install mysql<br>2、其余步骤参考上述，基本一致。</p>
 <p><a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="noopener">https://brew.sh/index_zh-cn.html</a></p>
-<h3 id="mysql-增删改查"><a href="#mysql-增删改查" class="headerlink" title="mysql 增删改查"></a>mysql 增删改查</h3><p>语言规则:</p>
-<div class="note primary">
-            <p>关键字和函数名称大写<br>数据库名称、表名称、字段名称全部小写</p>
-          </div>
-<p>新建数据库</p>
-<pre><code>create database test;
-</code></pre><p>删除数据库</p>
-<pre><code>delete database test;
-</code></pre><p>查mysql版本及安装情况</p>
-<pre><code>status
-</code></pre><p>一、查询创建删除用户</p>
-<p>查询mysql所有用户：</p>
-<pre><code>select user,host from mysql.user;
-</code></pre><p>创建用户：</p>
-<pre><code>create user &apos;test&apos;@&apos;localhost&apos; identified by &apos;123456&apos;;
-</code></pre><p>（注：单引号和双引号都可以，test为新建用户名，localhost为允许test用户访问的主机，localhost表示只能在本机登录，%代表所有的电脑都可以登录，’123456’表示test用户的登录密码）</p>
-<p>修改用户：</p>
-<pre><code>update mysql.user set authentication_string=(&apos;新密码&apos;) where user=&quot;test&quot; and host=&quot;localhost&quot;; 
-</code></pre><p>(mysql5.7版本中没有password字段，使用authentication_string替换了password)，</p>
-<p>flush privileges刷新MySQL的系统权限相关表，修改用户密码和用户权限需要执行，或者重启否则会出现拒绝访问</p>
 
       
     </div>
@@ -520,6 +501,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/01/mysql2/" rel="prev" title="Mac下 MySQL使用">
+                Mac下 MySQL使用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -590,7 +575,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -689,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装步骤："><span class="nav-number">2.</span> <span class="nav-text">安装步骤：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-增删改查"><span class="nav-number">3.</span> <span class="nav-text">mysql 增删改查</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装步骤："><span class="nav-number">2.</span> <span class="nav-text">安装步骤：</span></a></li></ol></div>
             
 
           </div>
