@@ -105,18 +105,18 @@
 
 
 
-  <meta name="description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15">
+  <meta name="description" content="操作系统：mac osx 10.14.3mysql版本：8.0.15 MySQL Community Server - GPL 问题描述             SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client            最近在用tp5开发一个后台项目，连接数据">
 <meta name="keywords" content="mysql brew">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac下 MySQL使用">
-<meta property="og:url" content="http://yoursite.com/2019/07/01/mysql2/index.html">
+<meta property="og:title" content="连接mysql数据库失败">
+<meta property="og:url" content="http://yoursite.com/2019/07/01/mysql3/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15">
+<meta property="og:description" content="操作系统：mac osx 10.14.3mysql版本：8.0.15 MySQL Community Server - GPL 问题描述             SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client            最近在用tp5开发一个后台项目，连接数据">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-01T03:06:49.056Z">
+<meta property="og:updated_time" content="2019-07-01T06:52:21.289Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac下 MySQL使用">
-<meta name="twitter:description" content="前言操作系统: mac osx 10.14.3 MySQL版本: 8.0.15">
+<meta name="twitter:title" content="连接mysql数据库失败">
+<meta name="twitter:description" content="操作系统：mac osx 10.14.3mysql版本：8.0.15 MySQL Community Server - GPL 问题描述             SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client            最近在用tp5开发一个后台项目，连接数据">
 
 
 
@@ -126,7 +126,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/01/mysql2/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/01/mysql3/">
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>Mac下 MySQL使用 | </title>
+  <title>连接mysql数据库失败 | </title>
   
 
 
@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/mysql2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/mysql3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GENEVA JIE">
@@ -318,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mac下 MySQL使用
+          <h1 class="post-title" itemprop="name headline">连接mysql数据库失败
 
               
             
@@ -344,7 +344,7 @@
                 
               
 
-              <time title="创建时间：2019-07-01 11:01:30 / 修改时间：11:06:49" itemprop="dateCreated datePublished" datetime="2019-07-01T11:01:30+08:00">2019-07-01</time>
+              <time title="创建时间：2019-07-01 14:44:21 / 修改时间：14:52:21" itemprop="dateCreated datePublished" datetime="2019-07-01T14:44:21+08:00">2019-07-01</time>
             
 
             
@@ -401,74 +401,28 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>操作系统: mac osx 10.14.3</p>
-<p>MySQL版本: 8.0.15</p>
-<a id="more"></a>
-<h3 id="mysql-命令增删改查"><a href="#mysql-命令增删改查" class="headerlink" title="mysql 命令增删改查"></a>mysql 命令增删改查</h3><p>语言规则:</p>
-<div class="note primary">
-            <p>关键字和函数名称大写<br>数据库名称、表名称、字段名称全部小写</p>
+        <p>操作系统：mac osx 10.14.3<br>mysql版本：8.0.15 MySQL Community Server - GPL</p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><div class="note danger">
+            <p>SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client</p>
           </div>
-<p>1、新建数据库</p>
-<pre><code>create database test;
-</code></pre><p>2、删除数据库</p>
-<pre><code>delete database test;
-</code></pre><p>3、查mysql版本及安装情况</p>
-<pre><code>status
-</code></pre><p>一、查询创建删除用户</p>
-<p>1、查询mysql所有用户：</p>
-<pre><code>select user,host from mysql.user;
-</code></pre><p>2、创建用户：</p>
-<pre><code>create user &apos;test&apos;@&apos;localhost&apos; identified by &apos;123456&apos;;
-</code></pre><p>（注：单引号和双引号都可以，test为新建用户名，localhost为允许test用户访问的主机，localhost表示只能在本机登录，%代表所有的电脑都可以登录，’123456’表示test用户的登录密码）</p>
-<p>3、修改用户：</p>
-<pre><code>update mysql.user set authentication_string=(&apos;新密码&apos;) where user=&quot;test&quot; and host=&quot;localhost&quot;; 
-</code></pre><p>(mysql5.7版本中没有password字段，使用authentication_string替换了password)，</p>
-<p>flush privileges刷新MySQL的系统权限相关表，修改用户密码和用户权限需要执行，或者重启否则会出现拒绝访问</p>
-<p>4、删除用户：<br>    drop user ‘test‘@’localhost’;</p>
-<p>(test为用户名，localhost为登录主机)</p>
-<p>二、查看分配用户权限</p>
-<p>1、查看数据库中某个用户权限：</p>
-<pre><code>show grants for &apos;test&apos;@&apos;localhost&apos;;     
-</code></pre><p>(查看test用户在本机的权限)</p>
-<p>2、给test用户在test数据库分配select,update权限：</p>
-<pre><code>grant select,update on test.* to &apos;test&apos;@&apos;localhost&apos; identified by &apos;123456&apos;;  
-</code></pre><p>(test.* 表示test数据库中所有数据，‘test‘@’localhost’ 表示本地test 用户,使用’%’ 表示对所有非本地主机授权，不包括localhost。)</p>
-<p>3、给用户分配所有操作权限：</p>
-<pre><code>grant all privileges on test.* to &apos;test&apos;@&apos;localhost&apos; identified by &apos;123456&apos;;
-</code></pre><p>(grant <strong>**</strong>on<strong>**</strong>to<strong><em>**</em></strong>identified by <strong>**</strong>;)</p>
-<p>4、删除用户操作权限：</p>
-<pre><code>revoke all on test.* from &apos;test&apos;@&apos;localhost&apos;;   
-</code></pre><p>(revoke <strong>*</strong> on <strong>**</strong>from<strong><em>**</em></strong>;)</p>
-<p>5、进入数据库</p>
-<p>进入test数据库：<br>    use ‘test’;</p>
-<p>查看当前使用数据库：</p>
-<pre><code>select database(); 
-</code></pre><p>(show databases;为展示所有的数据库)</p>
-<p>查看当前数据库中所有表：</p>
-<pre><code>show tables；
-</code></pre><p>6、建表</p>
-<p>新建：</p>
-<pre><code>create table 表名(字段名 字段类型); 
-</code></pre><p>（多个字段用逗号”,”分隔）</p>
-<p>7、导入sql文件</p>
-<pre><code>source d:/work/文件名.sql;   （此处为正斜杠&quot;/&quot;）
-</code></pre><p>出现问题结束当前行命令使用’\c’；</p>
-<p>退出mysql使用命令’\q’或’exit’</p>
-<p>10、数据库常用命令<br>查看表结构：</p>
-<pre><code>desc 表名；
-</code></pre><p>显示当前用户：</p>
-<pre><code>select user();
-</code></pre><p>显示当前时间：</p>
-<pre><code>select now();
-</code></pre><p>显示当前版本：</p>
-<pre><code>select version();
-</code></pre><p>查看当前使用数据库：</p>
-<pre><code>select database();
-</code></pre><p>删除数据库：</p>
-<pre><code>drop database 数据库名;
-</code></pre><p>删除表名：</p>
-<pre><code>drop table 表名;
-</code></pre>
+<p>最近在用tp5开发一个后台项目，连接数据库一直报上面👆错误</p>
+<h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><p>（1）过去 MySQL 的密码认证插件是“mysql_native_password”。<br>（2）而当 mysql 到了 8.0 版以上时，密码认证插件使用的是“caching_sha2_password”。可是当前有很多数据库工具和链接包都不支持这个。</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>修改密码认证方式，改回“mysql_native_password”认证插件。</p>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><p>（1）首先编辑 mysql 配置文件。由于我用的是 mac 电脑，安装后默认是没有这个配置文件的，执行如下命令添加配置文件：</p>
+<pre><code>sudo vi /etc/my.cnf
+</code></pre><p>（2）按下 i 进入编辑模式，添加如下内容（把加密模式改成旧的）：</p>
+<pre><code>[mysqld]
+default_authentication_plugin=mysql_native_password
+</code></pre><p>（3）最后按下 esc 退出编辑模式。 接着组合按下 shift + : 开启命令，然后输入 wq 回车，保存退出。</p>
+<p>（4）由于原来创建的用户（比如 root）还是使用新的验证方式，我们还需将它们改成老的。首先使用命令行连接数据库：</p>
+<pre><code>mysql -u root -p
+</code></pre><p>（5）登录后依次执行下面三个命令（其中密码部分根据情况自行修改）：</p>
+<pre><code>ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;密码&apos; PASSWORD EXPIRE NEVER;
+ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED WITH mysql_native_password BY &apos;密码&apos;;
+FLUSH PRIVILEGES;
+</code></pre><p>（6）完毕后重启 MySQL 服务可以发现，PHP 这边已经可以成功连接数据库了。</p>
+<p>参考：<a href="http://www.hangge.com/blog/cache/detail_2331.html" target="_blank" rel="noopener">http://www.hangge.com/blog/cache/detail_2331.html</a></p>
+
       
     </div>
 
@@ -504,8 +458,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/01/mysql/" rel="next" title="Mac安装MySQL">
-                <i class="fa fa-chevron-left"></i> Mac安装MySQL
+              <a href="/2019/07/01/mysql2/" rel="next" title="Mac下 MySQL使用">
+                <i class="fa fa-chevron-left"></i> Mac下 MySQL使用
               </a>
             
           </div>
@@ -513,10 +467,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/01/mysql3/" rel="prev" title="连接mysql数据库失败">
-                连接mysql数据库失败 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -686,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-命令增删改查"><span class="nav-number">2.</span> <span class="nav-text">mysql 命令增删改查</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题原因"><span class="nav-number">2.</span> <span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法"><span class="nav-number">3.</span> <span class="nav-text">解决办法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作步骤"><span class="nav-number">4.</span> <span class="nav-text">操作步骤</span></a></li></ol></div>
             
 
           </div>

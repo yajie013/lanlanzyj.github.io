@@ -298,6 +298,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/mysql3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GENEVA JIE">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/01/mysql3/" class="post-title-link" itemprop="url">连接mysql数据库失败</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-01 14:44:21 / 修改时间：14:52:21" itemprop="dateCreated datePublished" datetime="2019-07-01T14:44:21+08:00">2019-07-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/mysql-brew/" itemprop="url" rel="index"><span itemprop="name">mysql brew</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>操作系统：mac osx 10.14.3<br>mysql版本：8.0.15 MySQL Community Server - GPL</p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><div class="note danger">
+            <p>SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client</p>
+          </div>
+<p>最近在用tp5开发一个后台项目，连接数据库一直报上面👆错误</p>
+<h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><p>（1）过去 MySQL 的密码认证插件是“mysql_native_password”。<br>（2）而当 mysql 到了 8.0 版以上时，密码认证插件使用的是“caching_sha2_password”。可是当前有很多数据库工具和链接包都不支持这个。</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>修改密码认证方式，改回“mysql_native_password”认证插件。</p>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><p>（1）首先编辑 mysql 配置文件。由于我用的是 mac 电脑，安装后默认是没有这个配置文件的，执行如下命令添加配置文件：</p>
+<pre><code>sudo vi /etc/my.cnf
+</code></pre><p>（2）按下 i 进入编辑模式，添加如下内容（把加密模式改成旧的）：</p>
+<pre><code>[mysqld]
+default_authentication_plugin=mysql_native_password
+</code></pre><p>（3）最后按下 esc 退出编辑模式。 接着组合按下 shift + : 开启命令，然后输入 wq 回车，保存退出。</p>
+<p>（4）由于原来创建的用户（比如 root）还是使用新的验证方式，我们还需将它们改成老的。首先使用命令行连接数据库：</p>
+<pre><code>mysql -u root -p
+</code></pre><p>（5）登录后依次执行下面三个命令（其中密码部分根据情况自行修改）：</p>
+<pre><code>ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;密码&apos; PASSWORD EXPIRE NEVER;
+ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED WITH mysql_native_password BY &apos;密码&apos;;
+FLUSH PRIVILEGES;
+</code></pre><p>（6）完毕后重启 MySQL 服务可以发现，PHP 这边已经可以成功连接数据库了。</p>
+<p>参考：<a href="http://www.hangge.com/blog/cache/detail_2331.html" target="_blank" rel="noopener">http://www.hangge.com/blog/cache/detail_2331.html</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+      
+    
+      
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/mysql2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1482,187 +1665,6 @@ ____||_____       ========第三次🤝========&gt;                 ___ ||_____
 
       
     
-      
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/record_singapore/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GENEVA JIE">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/16/record_singapore/" class="post-title-link" itemprop="url">狮城</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-16 14:48:46" itemprop="dateCreated datePublished" datetime="2019-05-16T14:48:46+08:00">2019-05-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-24 14:53:33" itemprop="dateModified" datetime="2019-05-24T14:53:33+08:00">2019-05-24</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/记录/" itemprop="url" rel="index"><span itemprop="name">记录</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我对新加坡的印象，是历经风雨飘摇，底层人民不断自立自强建立起的现代、明主和平等的国家，憧憬着有一天可以游历一番。<br>内心深处对南洋文化有着很深的情结。<br><img src="/images/349583224r4523131.png"><br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/16/record_singapore/#more" rel="contents">
-                Read More &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-      
-    
   </section>
 
   
@@ -1711,7 +1713,7 @@ ____||_____       ========第三次🤝========&gt;                 ___ ||_____
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
