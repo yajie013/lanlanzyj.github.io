@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/0701/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/07-01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GENEVA JIE">
@@ -318,7 +318,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/07/01/0701/" class="post-title-link" itemprop="url">Mac安装MySQL</a>
+                <a href="/2019/07/01/07-01/" class="post-title-link" itemprop="url">Mac安装MySQL</a>
               
             
           </h1>
@@ -343,7 +343,7 @@
                 
               
 
-              <time title="创建时间：2019-07-01 09:40:18 / 修改时间：10:47:29" itemprop="dateCreated datePublished" datetime="2019-07-01T09:40:18+08:00">2019-07-01</time>
+              <time title="创建时间：2019-07-01 09:40:18 / 修改时间：10:53:15" itemprop="dateCreated datePublished" datetime="2019-07-01T09:40:18+08:00">2019-07-01</time>
             
 
             
@@ -417,14 +417,20 @@
 <p>使用以下命令进入mysql</p>
 <p>./mysql -u root -p<br> 此时，要求输入密码，就是前面设置的root密码</p>
 <p>测试是否正常<br>    show databases;<br><img src="/images/mysql6.png"></p>
-<p>二、mysql 增删改查 </p>
-<p>语言规则</p>
-<pre><code>关键字和函数名称大写
-数据库名称、表名称、字段名称全部小写
-</code></pre><p>新建数据库</p>
+<p>二、 使用brew命令安装mysql</p>
+<p>1、直接输入</p>
+<p>brew install mysql<br>2、其余步骤参考上述，基本一致。</p>
+<p><a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="noopener">https://brew.sh/index_zh-cn.html</a></p>
+<h3 id="mysql-增删改查"><a href="#mysql-增删改查" class="headerlink" title="mysql 增删改查"></a>mysql 增删改查</h3><p>语言规则</p>
+<div class="note primary">
+            <p>关键字和函数名称大写<br>数据库名称、表名称、字段名称全部小写</p>
+          </div>
+<p>新建数据库</p>
 <pre><code>create database test;
 </code></pre><p>删除数据库</p>
 <pre><code>delete database test;
+</code></pre><p>查mysql版本及安装情况</p>
+<pre><code>status
 </code></pre>
           
         
